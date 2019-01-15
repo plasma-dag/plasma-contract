@@ -1,0 +1,25 @@
+{
+  "name": "plasma-contract",
+  "version": "1.0.0",
+  "description": "The Smart Contract for Plasma DAG",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plasma-dag/plasma-contract.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plasma-dag/plasma-contract/issues"
+  },
+  "homepage": "https://github.com/plasma-dag/plasma-contract#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "^2.1.1"
+  }
+}
