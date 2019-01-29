@@ -110,4 +110,24 @@ contract PlasmaDAG {
 		emit Block(nonce);
 		return true;
 	}
+
+	/**
+	 * @dev Commit a block to update state of the participant.
+	 * @param _blockhash block hash value of the block.
+	 * @param _address updated addresses.
+	 * @param _value updated values of the addresses.
+	 * @param _nonce updated nonces of the addresses.
+	 * @return Let user know whether the commit process succeed or not.
+	 */
+	function commit(bytes32 _blockhash, address _address, uint256 _value, uint256 _nonce) public onlyOperator returns (bool) {
+		Entry storage entry = participants[_address];
+		require(entry.index > 0);
+		require((entry.nonce + 1) == _nonce);
+		entry.value = _value;
+		entry.nonce = _nonce;
+		nonce = nonce.add(1);
+		emit Commit(_blockhash, _address, _value, _nonce);
+		emit Block(nonce);
+		return true;
+	}
 }
